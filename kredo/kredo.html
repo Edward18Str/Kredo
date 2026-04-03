@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kredo - Lecții Biblice</title>
+    
+    <link rel="stylesheet" href="kredo.css">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="video-background">
+            <div class="video-foreground">
+                <iframe src="https://www.youtube.com/embed/XfEQaFUWMVE?autoplay=1&mute=1&loop=1&playlist=XfEQaFUWMVE&controls=0&showinfo=0&rel=0" 
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="overlay">
+            <div class="content">
+                <h1 class="logo">KREDO</h1>
+                <p>Descoperă povestea care îți schimbă viața.</p>
+                <a href="#lectii" class="btn-start">Să începem!</a>
+            </div>
+        </div>
+    </section>
+            <section id="lectii" class="categories-section">
+        
+        <nav class="top-menu">
+            <ul>
+                <li><a href="#verset-sectiune">Versetul zilei</a></li>
+                <li><a href="#contact-sectiune">Contact</a></li>
+            </ul>
+        </nav>
+
+      
+
+        <div class="categories-container">
+
+   <div class="global-floating-box">
+        <div class="global-info">
+            <span>Progres total site:</span>
+            <span id="global-progress-percentage">0%</span>
+        </div>
+        <div class="global-bar-bg">
+            <div class="global-bar-fill" id="global-progress-fill"></div>
+        </div>
+        <button id="btn-global-reset" onclick="resetGlobalProgress()" class="btn-global-reset" style="display: none;">⚠️ Resetare Totală</button>
+    </div>
+
+            <h2>Alege grupa de vârstă</h2>
+            
+
+            <div class="grid-4-buttons">
+                <a href="gr1/grupa1.html" class="category-card">
+                    <h3>Clasele 0-1</h3>
+                    <div class="keywords-box">
+                        <p>Creația • Arca lui Noe • Păstorul David</p>
+                    </div>
+                </a>
+
+                <a href="grupa2.html" class="category-card">
+                    <h3>Clasele 2-3</h3>
+                    <div class="keywords-box">
+                        <p>Cei 10 Leproși • Daniel în groapă • Iosif</p>
+                    </div>
+                </a>
+
+                <a href="grupa3.html" class="category-card">
+                    <h3>Clasele 4-5</h3>
+                    <div class="keywords-box">
+                        <p>Exodul • Pildele lui Isus • Estera</p>
+                    </div>
+                </a>
+
+                <a href="grupa4.html" class="category-card">
+                    <h3>Clasele 6-7</h3>
+                    <div class="keywords-box">
+                        <p>Apologetică • Călătoriile lui Pavel • Profeții</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+      <div class="daily-verse-container" id="verset-sectiune">
+    <h3 class="verse-title">✨ Versetul Zilei</h3>
+    <p class="verse-text" id="daily-verse-text">Se încarcă...</p>
+    <span class="verse-ref" id="daily-verse-ref"></span>
+</div>
+
+
+
+    </section>
+    <section id="contact-sectiune" class="contact-wrapper">
+        <header class="contact-header hidden-bottom">
+            <h1>Să ținem legătura ✨</h1>
+            <p>Ai o întrebare, o sugestie sau vrei doar să ne spui un gând bun? Suntem aici să te ascultăm!</p>
+        </header>
+
+        <div class="contact-container" id="contact-sectiune">
+            <div class="contact-info hidden-left">
+                <div class="info-card">
+                    <h3>✉️ Email</h3>
+                    <p>contact@kredo-app.ro</p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 Locație</h3>
+                    <p>Sîngeorz-Băi, România</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container hidden-right">
+                <form id="contact-form" action="https://formspree.io/f/maqldeog" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="name" name="nume" required placeholder="Numele tău">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required placeholder="Adresa de email">
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" name="mesaj" rows="5" required placeholder="Mesajul tău pentru noi..."></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">Trimite Mesajul 🚀</button>
+                </form>
+
+                <div id="success-message" class="success-message" style="display: none;">
+                    <h3>🎉 Mulțumim!</h3>
+                    <p>Mesajul tău a zburat către noi. Îți vom răspunde în curând!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

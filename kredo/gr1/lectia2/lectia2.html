@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 2: Grădina Eden - Kredo</title>
+    <link rel="stylesheet" href="../../kredo.css">
+</head>
+<body class="lesson-detail-page">
+
+    <nav class="top-menu">
+        <ul>
+            <li><a href="../grupa1.html">Înapoi la Lecții</a></li>
+        </ul>
+    </nav>
+
+    <article class="lesson-content">
+        <header class="lesson-header-title">
+            <h1>Lecția 2: Grădina Eden</h1>
+            <p>Alegerea dintre ascultare și neascultare.</p>
+        </header>
+
+        <section class="lesson-text">
+            <div class="intro-box">
+                <p>După ce a creat lumea, Dumnezeu a pregătit un loc absolut superb pentru primii oameni, Adam și Eva. Se numea Grădina Eden. Acolo nu exista tristețe, nu exista durere, iar ei se plimbau în fiecare zi alături de Creatorul lor.</p>
+            </div>
+
+            <div class="creation-days">
+                <div class="day-box hidden-right">
+                    <span>1. Regula de Aur</span>
+                    <p>Dumnezeu le-a dat libertate să mănânce din orice pom din grădină, cu o singură excepție: Pomul Cunoștinței Binelui și Răului. Regula era simplă și menită să îi protejeze.</p>
+                    <img src="eden_step1.jpg" alt="Grădina Eden" class="hover-image">
+                </div>
+                
+                <div class="day-box hidden-left">
+                    <span>2. Șoapta Șarpelui</span>
+                    <p>Într-o zi, un șarpe șiret a venit la Eva și i-a pus o întrebare care i-a adus îndoială în inimă: „Oare a zis Dumnezeu cu adevărat să nu mâncați...?” Șarpele a mințit-o că fructul îi va face la fel de înțelepți ca Dumnezeu.</p>
+                    <img src="eden_step2.jpg" alt="Grădina Eden" class="hover-image">
+                </div>
+
+                <div class="day-box hidden-bottom">
+                    <span>3. Alegerea și Consecința</span>
+                    <p>În loc să aibă încredere în Dumnezeu, Eva a mâncat din fruct și i-a dat și lui Adam. În acea clipă, perfecțiunea s-a stricat. Neascultarea i-a separat de Dumnezeu și au trebuit să părăsească grădina.</p>
+                    <img src="eden_step3.jpg" alt="Grădina Eden" class="hover-image">
+                </div>
+            </div>
+
+            <div class="bible-verse hidden-bottom">
+                <p>„Domnul Dumnezeu a dat omului porunca aceasta: «Poţi să mănânci după plăcere din orice pom din grădină; dar din pomul cunoştinţei binelui şi răului să nu mănânci...»”</p>
+                <span class="verse-reference">- Geneza 2:16-17</span>
+            </div>
+
+            <div class="interactive-info">
+                <h4>🍎 Știai că?</h4>
+                <p>Cuvântul „Eden” provine din limba ebraică veche și înseamnă <strong>„plăcere”</strong> sau <strong>„deliciu”</strong>. De aceea, locul unde trăiau primii oameni era, la propriu, o „Grădină a Deliciilor”! De asemenea, Biblia nu spune nicăieri că fructul oprit era un măr; ar fi putut fi orice fel de fruct!</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Ești gata pentru provocare?</h2>
+            <div id="quiz-container">
+                <div class="question-block" id="q1">
+                    <p class="question">1. Din ce pom le-a spus Dumnezeu să NU mănânce?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Pomul Vieții</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">Pomul Cunoștinței Binelui și Răului</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Mărul cu mere de aur</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q2" style="display:none;">
+                    <p class="question">2. Cine a convins-o pe Eva să nu asculte de regulă?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">Un șarpe</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Adam</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Un înger</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q3" style="display:none;">
+                    <p class="question">3. Ce s-a întâmplat după ce au ales să nu asculte?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Au primit superputeri</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Grădina s-a făcut mai mare</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">Au trebuit să părăsească grădina</button>
+                    </div>
+                </div>
+
+                <div id="result-box" style="display:none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 id="result-title">Rezultat</h3>
+                    <p id="score-text" style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;"></p>
+                    
+                    <button id="btn-restart" onclick="location.reload()" class="btn-restart">Mai încearcă pentru a finaliza lecția</button>
+                    
+                    <div id="finish-section" style="display:none; margin-top: 15px;">
+                        <button class="finish-btn" onclick="finishLesson(2, '../grupa1.html')">🏆 Am finalizat Lecția!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </article>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

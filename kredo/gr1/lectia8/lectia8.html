@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 8: Zacheu în copac - Kredo</title>
+    <link rel="stylesheet" href="../../kredo.css">
+</head>
+<body class="lesson-detail-page">
+
+    <nav class="top-menu">
+        <ul>
+            <li><a href="../grupa1.html">Înapoi la Lecții</a></li>
+        </ul>
+    </nav>
+
+    <article class="lesson-content">
+        <header class="lesson-header-title">
+            <h1>Lecția 8: Zacheu și Copacul cel Mare</h1>
+            <p>Cum un om mic a făcut un efort mare pentru a găsi un Prieten adevărat.</p>
+        </header>
+
+        <section class="lesson-text">
+            <div class="intro-box">
+                <p>Zacheu era un om bogat, dar nu prea avea prieteni pentru că nu fusese întotdeauna cinstit. Când a auzit că Iisus trece prin orașul lui, a vrut neapărat să Îl vadă, dar era prea mic de statură ca să vadă peste mulțime.</p>
+            </div>
+
+            <div class="creation-days">
+                <div class="day-box hidden-left">
+                    <span>1. Scara din Frunze</span>
+                    <p>Zacheu nu s-a lăsat bătut! A alergat înainte și s-a urcat într-un dud (un copac mare cu multe frunze). De acolo, de sus, putea vedea tot drumul. Se credea ascuns, dar nu știa că Iisus cunoaște inima fiecărui om.</p>
+                    <img src="zacchaeus_tree.jpg" alt="Zacheu în copac" class="hover-image">
+                </div>
+                
+                <div class="day-box hidden-right">
+                    <span>2. O Vizită Surpriză</span>
+                    <p>Când Iisus a ajuns sub copac, S-a oprit, s-a uitat în sus și l-a strigat pe nume: „Zacheu, dă-te jos repede, căci astăzi trebuie să rămân în casa ta!”. Zacheu a coborât plin de bucurie; era prima dată când cineva atât de important voia să fie prietenul lui.</p>
+                    <img src="jesus_calling.jpg" alt="Iisus îl strigă pe Zacheu" class="hover-image">
+                </div>
+
+                <div class="day-box hidden-bottom">
+                    <span>3. O Inimă Nouă</span>
+                    <p>Întâlnirea cu Iisus l-a schimbat pe Zacheu complet. El a promis că va da înapoi de patru ori mai mult celor pe care îi păcălise și că va împărți jumătate din averea lui cu săracii. Din acea zi, Zacheu nu a mai fost un om singur, ci un om bun și generos.</p>
+                    <img src="changed_heart.jpg" alt="Zacheu dăruind" class="hover-image">
+                </div>
+            </div>
+
+            <div class="bible-verse">
+                <p>„Iisus i-a zis: «Zachee, dă-te jos degrabă, căci astăzi trebuie să rămân în casa ta».”</p>
+                <span class="verse-reference">- Luca 19:5</span>
+            </div>
+
+            <div class="conclusion-box hidden-bottom" style="background: rgba(255, 215, 0, 0.1); border: 2px solid #ffd700; padding: 20px; border-radius: 15px; margin: 30px 0; text-align: center;">
+                <h3 style="color: #ffd700; margin-bottom: 10px;">🌟 Concluzia Noastră</h3>
+                <p>Dumnezeu ne iubește pe fiecare și ne știe pe nume, chiar și atunci când ne simțim mici sau ascunși. O singură zi petrecută cu El ne poate schimba inima și ne poate face mai buni!</p>
+            </div>
+
+            <div class="interactive-info">
+                <h4>🌳 Știai că?</h4>
+                <p>Copacul în care s-a urcat Zacheu se numește <strong>sicomor</strong> (un fel de dud sălbatic). Acești copaci sunt foarte robuști și au ramuri joase, fiind perfecți pentru cățărat, chiar și pentru un adult care nu este foarte înalt!</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Ai văzut bine povestea de sus?</h2>
+            <div id="quiz-container">
+                <div class="question-block" id="q1">
+                    <p class="question">1. De ce a trebuit Zacheu să se urce în copac?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">A. Pentru că era mic de statură și mulțimea îl bloca.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B. Pentru că voia să culeagă fructe din copac.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. Pentru că îi era frică de oamenii din oraș.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q2" style="display:none;">
+                    <p class="question">2. Cum a reacționat Zacheu când Iisus l-a strigat pe nume?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. S-a speriat și s-a ascuns mai bine printre frunze.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B. A coborât repede și L-a primit pe Iisus cu mare bucurie.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. I-a spus lui Iisus că nu are timp de vizite.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q3" style="display:none;">
+                    <p class="question">3. Ce schimbare importantă a făcut Zacheu la final?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. Și-a cumpărat un copac și mai mare.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B. A devenit generos și a dat banii înapoi celor păgubiți.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. S-a mutat din oraș ca să nu îl mai vadă nimeni.</button>
+                    </div>
+                </div>
+
+                <div id="result-box" style="display:none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 id="result-title">Rezultat</h3>
+                    <p id="score-text" style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;"></p>
+                    <button id="btn-restart" onclick="location.reload()" class="btn-restart">Recapitulează</button>
+                    <div id="finish-section" style="display:none; margin-top: 15px;">
+                        <button class="finish-btn" onclick="finishLesson(8, '../grupa1.html')">🏆 Am finalizat Lecția!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
