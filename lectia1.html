@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 1: Creația - Kredo</title>
+    
+    <link rel="stylesheet" href="../../kredo.css">
+</head>
+<body class="lesson-detail-page">
+
+    <nav class="top-menu">
+        <ul>
+            <li><a href="../grupa1.html">Înapoi la Lecții</a></li>
+        </ul>
+    </nav>
+
+    <article class="lesson-content">
+        <header class="lesson-header-title">
+            <h1>Lecția 1: Creația lui Dumnezeu</h1>
+            <p>Cum a luat ființă universul, stelele și planeta noastră.</p>
+        </header>
+
+        <section class="lesson-text">
+            <div class="intro-box">
+                <p>Creația nu este doar o poveste veche, ci un proiect grandios de design. Tot ce vedem în jurul nostru, de la complexitatea ochiului uman până la ordinea perfectă a sistemului solar, poartă amprenta unui Creator inteligent.</p>
+            </div>
+
+            <div class="creation-days">
+                <div class="day-box hidden-left">
+                    <span>Ziua 1 & 2</span>
+                    <p>Dumnezeu a despărțit lumina de întuneric și a creat atmosfera (cerul).</p>
+                    <img src="creatie_ziua12.jpg" alt="Lumină și Cer" class="hover-image">
+                </div>
+                <div class="day-box hidden-right">
+                    <span>Ziua 3 & 4</span>
+                    <p>A apărut pământul uscat, plantele, iar apoi soarele, luna și miliardele de stele care luminează cosmosul.</p>
+                    <img src="creatie_ziua34.jpg" alt="Pământ și Stele" class="hover-image">
+                </div>
+                <div class="day-box hidden-bottom">
+                    <span>Ziua 5 & 6</span>
+                    <p>Mările s-au umplut de pești, cerul de păsări, iar pământul de animale. La final, Dumnezeu l-a creat pe om, „după chipul Său”.</p>
+                    <img src="creatie_ziua56.jpg" alt="Animale și Om" class="hover-image">
+                </div>
+            </div>
+
+            <div class="bible-verse hidden-bottom">
+                <p>„Dumnezeu S-a uitat la tot ce făcuse; și iată că erau foarte bune.”</p>
+                <span class="verse-reference">- Geneza 1:31</span>
+            </div>
+
+            <div class="interactive-info">
+                <h4>🔭 Știai că?</h4>
+                <p>Dacă ai putea număra stelele din galaxia noastră (Calea Lactee) una câte una, în fiecare secundă, ți-ar lua peste 3.000 de ani să termini! Totuși, Biblia spune că Dumnezeu „le știe pe toate pe nume”.</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Ești gata pentru provocare?</h2>
+            <div id="quiz-container">
+                <div class="question-block" id="q1">
+                    <p class="question">1. Ce a creat Dumnezeu în prima zi?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">Lumina</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Animalele</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Omul</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q2" style="display:none;">
+                    <p class="question">2. În ce zi a fost creat omul?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Ziua 3</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">Ziua 6</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Ziua 1</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q3" style="display:none;">
+                    <p class="question">3. Ce a spus Dumnezeu despre tot ce a creat la final?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Că este incomplet</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">Că sunt foarte bune</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">Că sunt prea multe</button>
+                    </div>
+                </div>
+
+                <div id="result-box" style="display:none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 id="result-title">Rezultat</h3>
+                    <p id="score-text" style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;"></p>
+                    
+                    <button id="btn-restart" onclick="location.reload()" class="btn-restart">Mai încearcă pentru a finaliza lecția</button>
+                    
+                    <div id="finish-section" style="display:none; margin-top: 15px;">
+                        <button class="finish-btn" onclick="finishLesson(1, '../grupa1.html')">🏆 Am finalizat Lecția!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</div>
+
+    </article>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

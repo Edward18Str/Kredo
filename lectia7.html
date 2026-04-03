@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 7: Cinci pâini și doi pești - Kredo</title>
+    <link rel="stylesheet" href="../../kredo.css">
+</head>
+<body class="lesson-detail-page">
+
+    <nav class="top-menu">
+        <ul>
+            <li><a href="../grupa1.html">Înapoi la Lecții</a></li>
+        </ul>
+    </nav>
+
+    <article class="lesson-content">
+        <header class="lesson-header-title">
+            <h1>Lecția 7: Un Prânz Mic, o Minune Mare</h1>
+            <p>Cum darul unui singur copil a hrănit o mulțime întreagă.</p>
+        </header>
+
+        <section class="lesson-text">
+            <div class="intro-box">
+                <p>Mii de oameni s-au adunat să asculte povești frumoase pe un munte, dar s-a făcut seară și tuturor le era foarte foame. Nimeni nu avea mâncare, în afară de un băiețel care avea la el un pachețel mic.</p>
+            </div>
+
+            <div class="creation-days">
+                <div class="day-box hidden-left">
+                    <span>1. Un Dar din Inimă</span>
+                    <p>Băiețelul avea doar cinci pâinișoare și doi pești mici. Ar fi putut să îi mănânce singur, dar a ales să îi ofere lui Iisus. Deși ucenicii credeau că e mult prea puțin pentru atâția oameni, Iisus a zâmbit și a primit darul cu drag.</p>
+                    <img src="boy_lunch.jpg" alt="Băiețelul cu mâncarea" class="hover-image">
+                </div>
+                
+                <div class="day-box hidden-right">
+                    <span>2. Minunea de pe Iarbă</span>
+                    <p>Iisus a mulțumit lui Dumnezeu pentru mâncare și a început să o împartă. Și s-a întâmplat ceva incredibil: pe măsură ce dădea pâinea mai departe, coșurile nu se goleau niciodată! Toți cei 5.000 de oameni au mâncat pe săturate, stând liniștiți pe iarbă.</p>
+                    <img src="multiplication.jpg" alt="Înmulțirea pâinilor" class="hover-image">
+                </div>
+
+                <div class="day-box hidden-bottom">
+                    <span>3. Mai mult decât destul</span>
+                    <p>La final, după ce toată lumea s-a săturat, Iisus i-a rugat pe ucenici să strângă firimiturile. S-au adunat 12 coșuri pline cu resturi! Asta ne arată că atunci când dăruim cu inima bună, Dumnezeu ne dă înapoi mult mai mult decât am oferit.</p>
+                    <img src="baskets_full.jpg" alt="Coșurile pline" class="hover-image">
+                </div>
+            </div>
+
+            <div class="bible-verse">
+                <p>„Este aici un băieţel care are cinci pâini de orz şi doi peşti; dar ce sunt acestea la atâţia?”</p>
+                <span class="verse-reference">- Ioan 6:9</span>
+            </div>
+
+            <div class="conclusion-box hidden-bottom" style="background: rgba(255, 215, 0, 0.1); border: 2px solid #ffd700; padding: 20px; border-radius: 15px; margin: 30px 0; text-align: center;">
+                <h3 style="color: #ffd700; margin-bottom: 10px;">🌟 Concluzia Noastră</h3>
+                <p>Nu ești niciodată <strong>prea mic</strong> ca să fii de ajutor! Dacă împarți ceea ce ai cu ceilalți, Dumnezeu transformă gestul tău mic într-o binecuvântare uriașă pentru toată lumea.</p>
+            </div>
+
+            <div class="interactive-info">
+                <h4>🧺 Știai că?</h4>
+                <p>Numărul de 5.000 de oameni îi număra doar pe bărbați! Dacă punem la socoteală și femeile și copiii care erau acolo, probabil au fost peste 10.000 de oameni hrăniți dintr-un singur pachețel mic de prânz!</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Ești gata să împarți cunoștințele?</h2>
+            <div id="quiz-container">
+                <div class="question-block" id="q1">
+                    <p class="question">1. Ce a ales să facă băiețelul cu mâncarea lui?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. A mâncat-o repede pe ascuns sub un copac.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B. A oferit tot ce avea pentru a-i ajuta pe ceilalți.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. A încercat să o vândă celor flămânzi.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q2" style="display:none;">
+                    <p class="question">2. Ce s-a întâmplat cu mâncarea în mâinile lui Iisus?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B. S-a înmulțit miraculos până când toți s-au săturat.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. S-a terminat repede după primii zece oameni.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. S-a transformat în prăjituri cu ciocolată.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q3" style="display:none;">
+                    <p class="question">3. Câte coșuri cu resturi s-au strâns la final?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. Niciunul, pentru că au mâncat tot.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B. Doar jumătate de coș.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">C. 12 coșuri pline ochi.</button>
+                    </div>
+                </div>
+
+                <div id="result-box" style="display:none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 id="result-title">Rezultat</h3>
+                    <p id="score-text" style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;"></p>
+                    <button id="btn-restart" onclick="location.reload()" class="btn-restart">Mai încearcă!</button>
+                    <div id="finish-section" style="display:none; margin-top: 15px;">
+                        <button class="finish-btn" onclick="finishLesson(7, '../grupa1.html')">🏆 Am finalizat Lecția!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

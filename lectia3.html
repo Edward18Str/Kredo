@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 3: Arca lui Noe - Kredo</title>
+    <link rel="stylesheet" href="../../kredo.css">
+</head>
+<body class="lesson-detail-page">
+    <nav class="top-menu">
+        <ul><li><a href="../grupa1.html">Înapoi la Lecții</a></li></ul>
+    </nav>
+
+    <article class="lesson-content">
+        <header class="lesson-header-title">
+            <h1>Lecția 3: Arca lui Noe</h1>
+            <p>O corabie mare, multe animale și o promisiune colorată.</p>
+        </header>
+
+        <section class="lesson-text">
+            <div class="intro-box">
+                <p>Oamenii de pe pământ uitaseră de bunătatea lui Dumnezeu, dar Noe era diferit. El era un om bun care asculta mereu de Creatorul său.</p>
+            </div>
+
+            <div class="creation-days">
+                <div class="day-box hidden-left">
+                    <span>1. Construcția Uriașă</span>
+                    <p>Dumnezeu i-a spus lui Noe să construiască o corabie imensă (arca), chiar dacă nu plouase niciodată atât de tare. Noe a ascultat și a lucrat mulți ani la ea.</p>
+                    <img src="noe_step1.jpg" alt="Noe construind arca" class="hover-image">
+                </div>
+                <div class="day-box hidden-right">
+                    <span>2. Oaspeții cu Blană și Aripi</span>
+                    <p>Când arca a fost gata, animalele au venit două câte două: elefanți greoi, lei curajoși și păsări mici. Toți au fost în siguranță înăuntru când a început marea ploaie.</p>
+                    <img src="noe_step2.jpg" alt="Animalele intrând în arcă" class="hover-image">
+                </div>
+                <div class="day-box hidden-bottom">
+                    <span>3. Semnul Păcii</span>
+                    <p>După ce ploaia s-a oprit, Dumnezeu a pus pe cer primul curcubeu. Acesta era semnul Lui că va avea mereu grijă de noi și că nu va mai fi niciodată un potop atât de mare.</p>
+                    <img src="noe_step3.jpg" alt="Curcubeul pe cer" class="hover-image">
+                </div>
+            </div>
+
+            <div class="bible-verse hidden-right">
+                <p>„Curcubeul Meu, pe care l-am pus în nori, el va sluji ca semn al legământului dintre Mine și pământ.”</p>
+                <span class="verse-reference">- Geneza 9:13</span>
+            </div>
+
+            <div class="interactive-info">
+                <h4>🌈 Știai că?</h4>
+                <p>Arca lui Noe a fost la fel de lungă cât un stadion și jumătate de fotbal! Era atât de mare încât putea adăposti peste 125.000 de animale de mărimea unei oi.</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Ești gata pentru provocare?</h2>
+            <div id="quiz-container">
+                
+                <div class="question-block" id="q1">
+                    <p class="question">1. De ce i-a cerut Dumnezeu lui Noe să construiască arca?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. Pentru că Noe voia să fie cel mai mare marinar din lume.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B. Pentru că Noe era singurul om bun care încă asculta de Creatorul său.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. Pentru că animalele aveau nevoie de o casă de vacanță.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q2" style="display:none;">
+                    <p class="question">2. Cum au urcat animalele în uriașa corabie?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">A. Au venit organizate, două câte două.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B. Au fugit toate deodată înăuntru abia când a început ploaia.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. Au intrat doar animalele care nu știau deloc să înoate.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q3" style="display:none;">
+                    <p class="question">3. Ce a reprezentat de fapt curcubeul apărut pe cer la final?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. Un pod colorat pe care animalele să poată coborî din arcă.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B. Un semn că soarele s-a trezit după atâtea zile de ploaie.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">C. Semnul promisiunii lui Dumnezeu că nu va mai trimite un potop la fel.</button>
+                    </div>
+                </div>
+
+                <div id="result-box" style="display:none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 id="result-title">Rezultat</h3>
+                    <p id="score-text" style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;"></p>
+                    
+                    <button id="btn-restart" onclick="location.reload()" class="btn-restart">Mai încearcă pentru a finaliza lecția</button>
+                    
+                    <div id="finish-section" style="display:none; margin-top: 15px;">
+                        <button class="finish-btn" onclick="finishLesson(3, '../grupa1.html')">🏆 Am finalizat Lecția!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        </article>
+    <script src="../../script.js"></script>
+</body>
+</html>

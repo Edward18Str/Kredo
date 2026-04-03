@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 9: Liniștirea Furtunii - Kredo</title>
+    <link rel="stylesheet" href="../../kredo.css">
+</head>
+<body class="lesson-detail-page">
+
+    <nav class="top-menu">
+        <ul>
+            <li><a href="../grupa1.html">Înapoi la Lecții</a></li>
+        </ul>
+    </nav>
+
+    <article class="lesson-content">
+        <header class="lesson-header-title">
+            <h1>Lecția 9: Furtuna de pe Mare</h1>
+            <p>Cine este Acesta, de Îl ascultă chiar și vântul și apa?</p>
+        </header>
+
+        <section class="lesson-text">
+            <div class="intro-box">
+                <p>După o zi lungă, Iisus și prietenii Săi s-au urcat într-o barcă pentru a traversa marea. Iisus era atât de obosit încât a adormit imediat pe o pernă, în partea din spate a bărcii.</p>
+            </div>
+
+            <div class="creation-days">
+                <div class="day-box hidden-left">
+                    <span>1. Începe Furtuna</span>
+                    <p>Deodată, un vânt puternic a început să sufle. Valurile s-au făcut atât de mari încât loveau barca și o umpleau cu apă. Ucenicii (prietenii lui Iisus) trăgeau de vâsle, dar barca abia se mai ținea la suprafață.</p>
+                    <div class="anim-container">
+                        <img src="storm_starts.jpg" alt="Barca pe valuri" class="hover-image boat-sway">
+                    </div>
+                </div>
+                
+                <div class="day-box hidden-right">
+                    <span>2. Trezirea lui Iisus</span>
+                    <p>Ucenicii erau îngroziți! Au alergat la Iisus, L-au trezit disperați și au strigat: „Învățătorule, nu-Ți pasă că pierim?”. Le era foarte frică, uitând că Acela care a creat marea era chiar cu ei în barcă.</p>
+                    <div class="anim-container">
+                        <img src="disciples_scared.jpg" alt="Furtună puternică" class="hover-image storm-shake">
+                    </div>
+                </div>
+
+                <div class="day-box hidden-bottom">
+                    <span>3. „Taci! Fără larmă!”</span>
+                    <p>Iisus S-a ridicat liniștit. Nu S-a panicat. S-a uitat la valurile uriașe, a întins mâna și a spus doar trei cuvinte: „Taci! Fără larmă!”. Imediat, vântul s-a oprit și s-a făcut o liniște perfectă. Marea era ca o oglindă.</p>
+                    <img src="calm_sea.jpg" alt="Marea liniștită" class="hover-image">
+                </div>
+            </div>
+
+            <div class="bible-verse">
+                <p>„El S-a sculat, a certat vântul şi a zis mării: «Taci! Fără larmă!» Vântul a stat şi s-a făcut o linişte mare.”</p>
+                <span class="verse-reference">- Marcu 4:39</span>
+            </div>
+
+            <div class="conclusion-box hidden-bottom" style="background: rgba(255, 215, 0, 0.1); border: 2px solid #ffd700; padding: 20px; border-radius: 15px; margin: 30px 0; text-align: center;">
+                <h3 style="color: #ffd700; margin-bottom: 10px;">🌟 Concluzia Noastră</h3>
+                <p>Uneori, ni se întâmplă lucruri care ne sperie, la fel ca o „furtună”. Dar trebuie să ținem minte că <strong>nu suntem singuri în barcă</strong>. Iisus este cu noi și are puterea să aducă pace și liniște în orice situație grea!</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Ești la fel de curajos pe mare?</h2>
+            <div id="quiz-container">
+                <div class="question-block" id="q1">
+                    <p class="question">1. Ce făcea Iisus când a început furtuna?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. Ajuta la vâslit.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B. Dormea liniștit pe o pernă.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. Arunca apa din barcă.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q2" style="display:none;">
+                    <p class="question">2. Cum s-au simțit ucenicii în timpul furtunii?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">A. Au fost îngroziți de valurile mari.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B. Erau foarte relaxați.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">C. Li s-a părut amuzant să se legene.</button>
+                    </div>
+                </div>
+
+                <div class="question-block" id="q3" style="display:none;">
+                    <p class="question">3. Cum a oprit Iisus vântul și apa?</p>
+                    <div class="options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A. A construit un zid mare în jurul bărcii.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B. A vâslit foarte repede până la țărm.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">C. Le-a poruncit prin cuvinte să se liniștească.</button>
+                    </div>
+                </div>
+
+                <div id="result-box" style="display:none; text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 id="result-title">Rezultat</h3>
+                    <p id="score-text" style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;"></p>
+                    <button id="btn-restart" onclick="location.reload()" class="btn-restart">Recapitulează</button>
+                    <div id="finish-section" style="display:none; margin-top: 15px;">
+                        <button class="finish-btn" onclick="finishLesson(9, '../grupa1.html')">🏆 Am finalizat Lecția!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
