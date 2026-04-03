@@ -1,0 +1,385 @@
+/* ================= FUNDAL ȘI BAZĂ ================= */
+.space-body {
+    background-color: #0f172a; 
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    font-family: sans-serif;
+}
+
+.back-menu {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+}
+
+.back-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.back-menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ================= SISTEMUL SOLAR ================= */
+.solar-system {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.65); /* Micșorăm puțin ca să încapă pe ecran */
+    margin-top:-80px;
+}
+
+.sun {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, #ffd700, #ff8c00);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #ff8c00;
+    z-index: 100;
+}
+
+/* ================= REGLAJE STRICTE PENTRU MIȘCARE ================= */
+
+/* Orbitele (Cercurile invizibile) */
+.orbit {
+    position: absolute;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none; 
+    animation-play-state: paused !important; /* ÎNGHEȚATE DIN OFICIU */
+}
+
+/* DOAR planeta care e gata (done) își deblochează orbita */
+.orbit:has(.planet.done) {
+    animation-play-state: running !important;
+}
+
+/* Oprim orbita eliberată doar când punem mouse-ul pe ea */
+.orbit:has(.planet.done:hover) {
+    animation-play-state: paused !important;
+}
+
+/* ================= PLANETELE ȘI STĂRILE LOR ================= */
+/* 1. Resetăm Planeta - O facem să fie "vânabilă" de mouse */
+/* --- PLANETA (Revenim la bază) --- */
+.planet {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    top: -13px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: auto !important; /* Să fim siguri că simte mouse-ul */
+}
+
+/* --- TOOLTIP-UL (Simplu și fix deasupra) --- */
+.tooltip {
+    position: absolute;
+    bottom: 140%; /* Îl urcă deasupra planetei */
+    left: 50%;
+    transform: translateX(-50%); /* Îl centrează pe mijloc */
+    
+    background: rgba(15, 23, 42, 0.9);
+    color: #38bdf8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #38bdf8;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    
+    /* Îl facem vizibil doar la hover */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 9999;
+}
+
+/* Afișare la hover */
+.planet:hover .tooltip {
+    opacity: 1;
+}
+
+/* --- REGLAJUL PENTRU PLANETA 1 (Cea de la 90 de grade) --- */
+.p-1 .tooltip {
+    /* translateX(-50%) îl centrează, iar rotate(90deg) îl aduce la orizontală */
+    transform: translateX(-50%) rotate(90deg) !important;
+    
+    /* Îl mutăm puțin mai la dreapta sau stânga dacă nu cade fix deasupra */
+    bottom: 50%; 
+    left: 150%; 
+}
+
+/* 4. Animația inversă redefinită clar */
+@keyframes counter-spin {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+/* STAREA A: BLOCATĂ */
+.planet.locked {
+    background: #475569 !important; 
+    opacity: 0.5;
+    pointer-events: none; 
+    box-shadow: none !important;
+}
+.planet.locked .tooltip { display: none; }
+
+/* STAREA B: ACTIVĂ (Misiunea curentă - E VERDE) */
+.planet.active {
+    background: #22c55e !important; 
+    box-shadow: 0 0 20px #22c55e !important;
+    transform: scale(1.3); 
+    z-index: 10;
+}
+
+/* STAREA C: ELIBERATĂ (Ai trecut testul) */
+.planet.done {
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.5), 0 0 10px rgba(255, 255, 255, 0.4); 
+}
+.planet.done:hover {
+    transform: scale(1.5);
+}
+
+/* ================= TOOLTIP (Textul "Lecția X") ================= */
+
+
+/* Când punem mouse-ul pe planetă, apare tooltip-ul */
+
+.planet:hover .tooltip { opacity: 1; }
+
+/* ================= CULORILE PLANETELOR ================= */
+.p-1 { background: #f87171; } 
+.p-2 { background: #fbbf24; } 
+.p-3 { background: #60a5fa; } 
+.p-4 { background: #a78bfa; } 
+.p-5 { background: #fb923c; } 
+.p-6 { background: #34d399; } 
+.p-7 { background: #cbd5e1; } 
+.p-8 { background: #f472b6; } 
+.p-9 { background: #38bdf8; } 
+.p-10 { background: #818cf8; } 
+
+/* ================= DIMENSIUNI INVERSATE (Ideea ta!) ================= */
+/* Lecția 1 e cea mai departe (770px), Lecția 10 e cea mai aproape de soare (140px) */
+
+.orbit-1 { width: 770px; height: 770px; animation: spin 120s linear infinite -90s; } 
+.orbit-2 { width: 700px; height: 700px; animation: spin 100s linear infinite -30s; } 
+.orbit-3 { width: 630px; height: 630px; animation: spin 82s linear infinite -60s; } 
+.orbit-4 { width: 560px; height: 560px; animation: spin 66s linear infinite -10s; } 
+.orbit-5 { width: 490px; height: 490px; animation: spin 52s linear infinite -40s; } 
+.orbit-6 { width: 420px; height: 420px; animation: spin 40s linear infinite -25s; } 
+.orbit-7 { width: 350px; height: 350px; animation: spin 30s linear infinite -2s; } 
+.orbit-8 { width: 280px; height: 280px; animation: spin 22s linear infinite -15s; } 
+.orbit-9 { width: 210px; height: 210px; animation: spin 15s linear infinite -8s; } 
+.orbit-10 { width: 140px; height: 140px; animation: spin 10s linear infinite -3s; } 
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }}
+
+/* ================= PANOUL DE STATUS AL MISIUNII (Progres) ================= */
+.mission-dashboard {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 15px;
+    padding: 15px 20px;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    color: #38bdf8; /* Albastru neon */
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.mission-bar-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mission-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+    box-shadow: 0 0 10px #38bdf8;
+}
+
+.mission-congrats {
+    color: #22c55e;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+/* ================= FUNDAL STELE ANIMATE (Parallax) ================= */
+
+/* Containerul principal care acoperă tot ecranul */
+#stars-container {
+    position: fixed; /* Rămâne fix pe fundal */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Îl punem în spatele tuturor elementelor */
+    background-color: #0f172a; /* Culoarea spațiului profund */
+    overflow: hidden;
+}
+
+/* Stilul general pentru toate straturile de stele */
+.stars-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Facem stratul mai lat ca să se poată mișca */
+    height: 200%; /* Și mai înalt */
+    animation-name: moveStars; /* Numele animației generale */
+    animation-iteration-count: infinite; /* Să ruleze la infinit */
+    animation-timing-function: linear; /* Mișcare fluidă, constantă */
+    pointer-events: none; /* Mouse-ul trece prin ele (nu blochează click-urile) */
+}
+
+/* --- DEFINIREA ANIMAȚIEI DE MIȘCARE --- */
+/* Facem stelele să se miște încet pe diagonală */
+@keyframes moveStars {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-100px, -100px); } /* Distanța pe care o parcurg */
+}
+
+/* --- GENERAREA STELELOR CU PURE CSS (radial-gradient) --- */
+/* Folosim trucul cu dimensiuni diferite ale fundalului pentru a crea "densitate" */
+
+/* Stratul 1: Stele Mari și Rare (Se mișcă cel mai repede) */
+.stars-1 {
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, white, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 80px 150px, white, rgba(0,0,0,0));
+    background-size: 200px 200px; /* Spațiu mare între stele */
+    animation-duration: 50s; /* TIMP SCURT = VITEZĂ MARE (apropiate) */
+    opacity: 0.8;
+}
+
+/* Stratul 2: Stele Medii (Densitate medie, viteză medie) */
+.stars-2 {
+    background-image: 
+        radial-gradient(1.5px 1.5px at 10px 10px, white, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 150px 150px, rgba(255,255,255,0.8), rgba(0,0,0,0));
+    background-size: 100px 100px; /* Spațiu mediu */
+    animation-duration: 100s; /* Viteză medie */
+    opacity: 0.6;
+}
+
+/* Stratul 3: Stele Mici și Foarte Dense (Se mișcă cel mai lent = adâncime) */
+.stars-3 {
+    background-image: 
+        radial-gradient(1px 1px at 25px 25px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 75px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 150px 100px, rgba(255,255,255,0.5), rgba(0,0,0,0));
+    background-size: 50px 50px; /* Foarte dense */
+    animation-duration: 200s; /* TIMP LUNG = VITEZĂ LENTĂ (adâncime) */
+    opacity: 0.4;
+}
+
+/* ================= NEBULOASE (Petele de culoare) ================= */
+
+.nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px); /* Le face super difuze, ca un nor de gaz */
+    z-index: -1;
+    opacity: 0.15; /* Foarte discrete, să nu deranjeze ochii */
+    animation: pulseNebula 15s ease-in-out infinite alternate;
+}
+
+/* Nebuloasa Mov - o punem undeva în dreapta sus */
+.nebula-purple {
+    width: 500px;
+    height: 500px;
+    background: #a855f7;
+    top: -100px;
+    right: -50px;
+}
+
+/* Nebuloasa Albastră - o punem în stânga jos */
+.nebula-blue {
+    width: 600px;
+    height: 600px;
+    background: #3b82f6;
+    bottom: -150px;
+    left: -100px;
+    animation-delay: -5s; /* Să nu pulseze ambele deodată */
+}
+
+/* Animația de pulsare (le face să pară vii) */
+@keyframes pulseNebula {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.1; }
+    100% { transform: scale(1.2) translate(30px, 20px); opacity: 0.2; }
+}
+
+#btn-reset-g2 {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid #ef4444;
+    color: #f87171;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-top: 10px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+#btn-reset-g2:hover {
+    background: rgba(239, 68, 68, 0.4);
+    color: white;
+}
+

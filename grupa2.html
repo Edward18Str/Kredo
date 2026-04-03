@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupa 2: Explorator Spațial - Kredo</title>
+    <link rel="stylesheet" href="grupa2.css"> 
+</head>
+<body class="space-body">
+
+<div id="stars-container">
+    <div class="stars-layer stars-1"></div>
+    <div class="stars-layer stars-2"></div>
+    <div class="stars-layer stars-3"></div>
+
+    <div class="nebula nebula-purple"></div>
+    <div class="nebula nebula-blue"></div>
+</div>
+
+    <nav class="back-menu">
+        <a href="kredo.html#lectii">⬅ Înapoi la Bază</a>
+    </nav>
+
+    <div class="mission-dashboard">
+    <div class="mission-header">
+        <span class="mission-title">Status Explorare</span>
+        <span class="mission-percentage" id="gr2-percentage">0%</span>
+    </div>
+    <div class="mission-bar-container">
+        <div class="mission-bar-fill" id="gr2-progress-fill"></div>
+    </div>
+    <p class="mission-congrats" id="gr2-congrats" style="display: none;">🌟 Misiune Îndeplinită!</p>
+    
+    <button id="btn-reset-g2" onclick="resetProgressG2()" style="display:none;">
+        Resetare Misiune
+    </button>
+</div>
+
+<div class="solar-system">
+        <div class="sun"></div>
+
+        <div class="orbit orbit-1">
+            <a href="gr2_l1.html" class="planet p-1"><span class="tooltip">Lecția 1</span></a>
+        </div>
+        <div class="orbit orbit-2">
+            <a href="gr2_l2.html" class="planet p-2"><span class="tooltip">Lecția 2</span></a>
+        </div>
+        <div class="orbit orbit-3">
+            <a href="gr2_l3.html" class="planet p-3"><span class="tooltip">Lecția 3</span></a>
+        </div>
+        <div class="orbit orbit-4">
+            <a href="gr2_l4.html" class="planet p-4"><span class="tooltip">Lecția 4</span></a>
+        </div>
+        <div class="orbit orbit-5">
+            <a href="gr2_l5.html" class="planet p-5"><span class="tooltip">Lecția 5</span></a>
+        </div>
+        <div class="orbit orbit-6">
+            <a href="gr2_l6.html" class="planet p-6"><span class="tooltip">Lecția 6</span></a>
+        </div>
+        <div class="orbit orbit-7">
+            <a href="gr2_l7.html" class="planet p-7"><span class="tooltip">Lecția 7</span></a>
+        </div>
+        <div class="orbit orbit-8">
+            <a href="gr2_l8.html" class="planet p-8"><span class="tooltip">Lecția 8</span></a>
+        </div>
+        <div class="orbit orbit-9">
+            <a href="gr2_l9.html" class="planet p-9"><span class="tooltip">Lecția 9</span></a>
+        </div>
+        <div class="orbit orbit-10">
+            <a href="gr2_l10.html" class="planet p-10"><span class="tooltip">Lecția 10</span></a>
+        </div>
+    </div>
+
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const totalLectii = 10;
+
+            for (let i = 1; i <= totalLectii; i++) {
+                const planeta = document.querySelector(`.p-${i}`);
+                
+                // Căutăm în memoria browserului dacă lecțiile sunt gata
+                const lectiaCurentaGata = localStorage.getItem(`gr2_l${i}_complet`) === "true";
+                const lectiaPrecedentaGata = i === 1 ? true : localStorage.getItem(`gr2_l${i-1}_complet`) === "true";
+
+                // Aplicăm stările:
+                if (lectiaCurentaGata) {
+                    // Dacă e gata: îi dăm clasa 'done'. CSS-ul o va face să se miște!
+                    planeta.classList.add('done');
+                } else if (lectiaPrecedentaGata) {
+                    // Dacă e rândul ei: îi dăm clasa 'active'. CSS-ul o face verde și O ȚINE PE LOC!
+                    planeta.classList.add('active');
+                } else {
+                    // Restul: clasa 'locked'. Pietre gri, oprite.
+                    planeta.classList.add('locked');
+                }
+            }
+        });
+    </script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,910 @@
+/* Resetare de bază */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden; /* Ascunde definitiv scroll-ul stânga-dreapta */
+}
+
+/* Containerul principal care ocupă tot ecranul */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stiluri pentru fundalul video */
+.video-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none; /* Ca să nu poți da click pe video */
+}
+
+.video-foreground iframe {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 300%; height: 300%; /* Îl facem mai mare ca să acopere tot */
+    transform: translate(-50%, -50%);
+}
+
+/* Efectul de Blur și întunecare pentru lizibilitate */
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Întunecăm puțin videoul */
+    backdrop-filter: blur(8px);    /* Aici se face blur-ul! */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Stiluri text și buton */
+.logo {
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.btn-start {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 50px; /* Margini rotunjite */
+    transition: all 0.3s ease; /* Efect de animație la hover */
+    background: transparent;
+}
+
+/* Efectul când pui mouse-ul pe buton */
+.btn-start:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1); /* Se mărește puțin */
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+/* --- Secțiunea Categorii --- */
+.categories-section {
+    min-height: 100vh; /* Ocupă tot ecranul */
+    background: linear-gradient(135deg, #1a1a2e, #16213e); /* Un fundal elegant, întunecat */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Locul pentru viitorul meniu */
+.top-menu {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 50px;
+}
+
+.categories-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Grila care așează butoanele 2 sus, 2 jos */
+.grid-4-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 coloane */
+    gap: 40px; /* Spațiu între butoane */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Designul fiecărui buton (Card) */
+.category-card {
+    text-decoration: none; /* Scoate sublinierea inestetică de link */
+    color: white;          /* Se asigură că textul rămâne alb */
+    display: block;        /* Se asigură că linkul își păstrează forma de cutie */
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 50px 40px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease; /* Animație fluidă */
+    backdrop-filter: blur(10px);
+}
+
+.category-card h3 {
+    font-size: 1.8rem;
+    transition: all 0.4s ease;
+}
+
+/* --- Efectul de Hover (Chenarul și Cuvintele Cheie) --- */
+.keywords-box {
+    position: absolute;
+    bottom: -50px; /* Ascuns sub buton inițial */
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Invizibil */
+    transition: all 0.4s ease;
+    color: #ffd700; /* O culoare aurie pentru cuvinte cheie */
+    font-size: 0.9rem;
+    padding: 0 20px;
+}
+
+.category-card:hover {
+    transform: translateY(-10px); /* Se ridică puțin */
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffd700; /* Chenarul devine auriu */
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2); /* Strălucire */
+}
+
+.category-card:hover h3 {
+    transform: translateY(-15px); /* Titlul urcă ca să facă loc textului */
+}
+
+.category-card:hover .keywords-box {
+    bottom: 30px; /* Textul urcă în cadru */
+    opacity: 1; /* Devine vizibil */
+}
+
+/* --- Stiluri pentru Meniul de Navigare --- */
+.top-menu ul {
+    list-style: none; /* Scoatem punctele listei */
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Spațiu între butoane */
+    margin: 0;
+    padding: 0;
+}
+
+.top-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent; /* O linie invizibilă sub text */
+}
+
+/* Efectul când pui mouse-ul pe meniu */
+.top-menu a:hover {
+    color: #ffd700; /* Devine auriu */
+    border-bottom: 2px solid #ffd700; /* Apare linia aurie dedesubt */
+}
+
+/* Stiluri pentru Pagina de Lecții */
+.lessons-page {
+    background: #0f172a; /* Un albastru închis, diferit de prima pagină */
+    color: white;
+}
+
+.lessons-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.lessons-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.lessons-header h1 {
+    font-size: 3rem;
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Grila de lecții (le punem una sub alta sau pe două coloane) */
+.lessons-grid {
+    display: grid;
+    /* Aici e magia: cardurile se vor așeza automat în funcție de spațiul disponibil */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 20px;
+    padding: 0 10px; /* Lasă o mică margine de respirație stânga-dreapta */
+}
+
+/* Cardul de Lecție - DIFERIT de cel de pe prima pagină */
+.lesson-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #ffd700;
+    padding: 15px 20px; /* Am micșorat spațiul interior */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Am micșorat distanța dintre numărul mare și text */
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.lesson-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    opacity: 0.2;
+    color: #ffd700;
+}
+
+.lesson-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+/* Cuvintele cheie care apar la HOVER */
+.lesson-keywords {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+/* EFECTUL DE HOVER */
+.lesson-card:hover {
+    background: rgba(255, 215, 0, 0.05);
+    transform: translateX(10px); /* Se mișcă puțin la dreapta */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.lesson-card:hover .lesson-keywords {
+    max-height: 50px;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+/* Butonul mic de accesat lecția */
+.lesson-link {
+    margin-left: auto;
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: 1px solid #ffd700;
+    padding: 5px 15px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Lasă un spațiu finuț între text și bifă */
+    white-space: nowrap; /
+}
+
+.lesson-card:hover .lesson-link {
+    opacity: 1;
+}
+
+/* --- Detalii Lecția 1 --- */
+.lesson-detail-page {
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.8; /* Face textul mai aerisit și ușor de citit */
+    font-size: 1.15rem;
+}
+
+.lesson-content {
+    max-width: 800px; /* Ținem textul pe mijloc, să nu fie prea lat */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.lesson-header-title {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.lesson-header-title h1 {
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.lesson-text p {
+    margin-bottom: 20px;
+}
+
+/* --- Designul Elegant pentru Versete --- */
+.bible-verse {
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.1), transparent);
+    border-left: 4px solid #ffd700;
+    padding: 25px 30px;
+    margin: 40px 0;
+    border-radius: 0 15px 15px 0;
+    font-style: italic;
+    font-size: 1.3rem;
+    position: relative;
+}
+
+.verse-reference {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ffd700;
+    font-style: normal;
+    font-size: 1rem;
+    text-align: right; /* Punem referința în dreapta jos */
+}
+
+/* --- Secțiunea de Quiz --- */
+.quiz-section {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 2px dashed rgba(255, 215, 0, 0.3);
+}
+
+.quiz-section h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.quiz-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.question {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffd700;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Butoanele pentru variantele de răspuns */
+.quiz-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-btn:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: #ffd700;
+    padding-left: 35px; /* Efect fain: textul glisează spre dreapta la hover */
+    color: #ffd700;
+}
+
+.day-box {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+.day-box span {
+    color: #ffd700;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.interactive-info {
+    background: #1e293b;
+    border: 2px dashed #ffd700;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+.btn-restart {
+    background: #ffd700;
+    color: #0f172a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+/* Feedback pentru Quiz */
+.correct { background-color: #22c55e !important; color: white; }
+.incorrect { background-color: #ef4444 !important; color: white; }
+
+/* --- Modificare necesară pentru ca imaginea absolută să funcționeze --- */
+.day-box {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    
+    /* ACEASTA ESTE LINIA CHEIE: "Ancorăm" elementele din interior */
+    position: relative; 
+    overflow: hidden; /* Ne asigurăm că imaginea nu iese din colțurile rotunjite */
+}
+
+/* --- Stilul inițial al imaginii (ASCUNSĂ) --- */
+.hover-image {
+    position: absolute;
+    top: 0;
+    left: 0; /* O punem să înceapă din colțul stânga sus */
+    width: 100%; /* Ocupă toată lățimea */
+    height: 100%; /* Ocupă toată înălțimea */
+    
+    /* ACEASTA ESTE LINIA MAGICĂ: imaginea umple tot spațiul fără să se deformeze */
+    object-fit: cover; 
+    
+    opacity: 0;
+    transform: scale(1.1); /* O facem un pic mai mare la început pentru un efect de zoom */
+    transition: all 0.6s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- Stilul textului din interior ca să rămână lizibil --- */
+.day-box p, .day-box span {
+    position: relative;
+    z-index: 2; /* Textul rămâne deasupra imaginii */
+    max-width: 100%; /* Textul se poate întinde acum pe tot chenarul */
+    
+    /* Adăugăm o umbră textului ca să se citească bine peste orice poză */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+/* --- EFECTUL DE HOVER: Imaginea apare --- */
+.day-box:hover .hover-image {
+    opacity: 0.4; /* Poți mări la 0.5 dacă vrei poza mai intensă */
+    transform: scale(1); /* La hover revine la mărimea normală (efect de "zoom out") */
+}
+
+/* --- Efecte de Scroll (Starea inițială, ascunsă) --- */
+.hidden-left {
+    opacity: 0;
+    transform: translateX(-80px); /* Ascuns cu 80px mai la stânga */
+    transition: all 0.8s ease-out; /* O mișcare fluidă de 0.8 secunde */
+}
+
+.hidden-right {
+    opacity: 0;
+    transform: translateX(80px); /* Ascuns cu 80px mai la dreapta */
+    transition: all 0.8s ease-out;
+}
+
+.hidden-bottom {
+    opacity: 0;
+    transform: translateY(80px); /* Ascuns cu 80px mai jos */
+    transition: all 0.8s ease-out;
+}
+
+/* --- Starea finală (când apar pe ecran) --- */
+.show-element {
+    opacity: 1;
+    transform: translate(0, 0) scale(1); /* Revin exact la locul lor normal */
+}
+
+/* --- Bara de Progres --- */
+.progress-container {
+    position: absolute;
+    top: 95px; /* Am mărit de la 20px la 95px ca să treacă sub linie */
+    right: 30px;
+    background: rgba(15, 23, 42, 0.9); /* I-am pus un fundal puțin mai opac ca să se vadă bine peste conținut */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    width: 220px;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Am adăugat o umbră fină să pară că plutește elegant */
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* Fundalul gri-închis al barei */
+.progress-bar-background {
+    background: rgba(255, 255, 255, 0.1);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden; /* Nu lasă culoarea să iasă din colțurile rotunjite */
+}
+
+/* Culoarea care se va umple efectiv */
+.progress-bar-fill {
+    background: linear-gradient(90deg, #ffd700, #ff8c00); /* Un auriu-portocaliu frumos */
+    height: 100%;
+    width: 0%; /* Începe mereu de la 0, JavaScript va modifica asta */
+    border-radius: 6px;
+    transition: width 1.2s ease-in-out; /* Animație lentă și satisfăcătoare când se umple */
+}
+
+.finish-btn {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    color: #0f172a;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.finish-btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+.reset-btn {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    color: #ef4444; /* Se face roșu la hover */
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Stil pentru lecția finalizată și blocată */
+.lesson-card.completed .lesson-link {
+    background: #475569; /* Un gri închis */
+    pointer-events: none; /* ACEASTA ESTE LINIA CARE BLOCHEAZĂ CLICK-UL */
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.lesson-card.completed .lesson-link::after {
+    content: " ✅"; /* Adăugăm o bifă lângă text */
+}
+
+/* --- Estomparea întregului chenar pentru lecțiile finalizate --- */
+
+/* 1. Întunecăm fundalul și scoatem marginile strălucitoare */
+.lesson-card.completed {
+    background: rgba(255, 255, 255, 0.02); /* Un fundal mult mai întunecat/șters */
+    border-color: rgba(255, 255, 255, 0.05); /* Margine abia vizibilă */
+    box-shadow: none; /* Îi scoatem umbra ca să pară "plat" */
+}
+
+/* 2. Facem textul (titlul și cuvintele cheie) gri */
+.lesson-card.completed h3,
+.lesson-card.completed .lesson-keywords,
+.lesson-card.completed .lesson-number {
+    color: rgba(255, 255, 255, 0.3); /* Un gri discret */
+}
+
+/* 3. Oprim efectul de hover (să nu se mai miște când pui mouse-ul pe el) */
+.lesson-card.completed:hover {
+    transform: none; /* Rămâne nemișcat, fixat de ecran */
+    border-color: rgba(255, 255, 255, 0.05); /* Nu se mai aprinde marginea */
+}
+
+/* --- Versetul Zilei (Pagina Principală) --- */
+.daily-verse-container {
+    margin: 60px auto; /* Îi dăm spațiu sus-jos și îl centrăm */
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.03); /* Un fundal foarte fin, de sticlă */
+    border-left: 4px solid #ffd700; /* O bară aurie elegantă pe partea stângă */
+    padding: 35px 40px;
+    border-radius: 0 15px 15px 0; /* Rotunjim doar colțurile din dreapta */
+    text-align: left; /* Aliniem la stânga pentru a se potrivi cu bara aurie */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.daily-verse-container:hover {
+    transform: translateY(-5px); /* Se ridică puțin la hover */
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.1); /* Umbra capătă o ușoară tentă aurie */
+}
+
+.verse-title {
+    color: #ffd700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Spațiu mai mare între litere pentru eleganță */
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.verse-text {
+    font-size: 1.4rem;
+    font-style: italic; /* Text înclinat pentru a semăna cu un citat clasic */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #f8fafc;
+     animation: fadeInVerse 1.5s ease;
+}
+
+.verse-ref {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff8c00; /* Un portocaliu cald pentru a ieși în evidență */
+}
+
+@keyframes fadeInVerse {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Bara Globală Plutitoare (Fără Conflicte) --- */
+.global-floating-box {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 300px; /* Acum este blocată strict la 300 de pixeli lățime */
+    z-index: 9999;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.global-info {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.global-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.global-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa); /* O facem albastră ca să difere de cea verde din grupă */
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Butonul de resetare */
+.btn-global-reset {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: rgba(220, 38, 38, 0.2);
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-global-reset:hover {
+    background: #dc2626;
+    color: white;
+}
+/* ================= PAGINA CONTACT (Integrată) ================= */
+.contact-wrapper {
+    max-width: 1000px;
+    margin: 120px auto 100px auto; 
+    padding: 50px 30px;
+    
+    /* MAGIA ANTI-FLASHBANG: Forțăm un fundal transparent sau un gradient foarte închis */
+    background: transparent !important; 
+    color: #f8fafc; /* Forțăm textul să rămână deschis pe fundalul întunecat */
+    
+    /* Opțional: Dacă vrei să aibă o mică delimitare elegantă (ca o capsulă de sticlă pe fundalul tău): */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 40px;
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.2); /* O umbră fină în sus pentru o tranziție lină */
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-size: 3rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* Cardurile de info din stânga */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.info-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* Formularul din dreapta */
+.contact-form-container {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative; /* Pentru a centra mesajul de succes */
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    box-sizing: border-box; /* Previne ieșirea din chenar */
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #ffd700;
+    outline: none;
+}
+
+.send-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border: none;
+    border-radius: 10px;
+    color: #1e293b;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Mesajul de Succes */
+.success-message {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeInVerse 1s ease;
+}
+
+.success-message h3 {
+    color: #22c55e;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Responsivitate (se așează una sub alta pe telefon) */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scoatem textul din întuneric */
+.info-card p {
+    color: #000000; /* Un alb deschis și curat, ușor de citit */
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ================= ANIMAȚII PENTRU LECȚIA 9 (Furtuna) ================= */
+
+/* 1. Barca legănându-se ușor pe valuri */
+@keyframes leagan {
+    0% { transform: rotate(-3deg) translateY(0px); }
+    50% { transform: rotate(3deg) translateY(-10px); }
+    100% { transform: rotate(-3deg) translateY(0px); }
+}
+
+.boat-sway {
+    animation: leagan 3s infinite ease-in-out;
+}
+
+/* 2. Barca zguduită puternic de furtună */
+@keyframes cutremur {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.storm-shake {
+    animation: cutremur 0.5s infinite;
+}
+
+/* Oprim efectul de hover obișnuit pe aceste poze ca să nu strice animația */
+.anim-container .hover-image:hover {
+    transform: none; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
